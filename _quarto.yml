@@ -9,8 +9,8 @@ project:
   output-dir: docs
 
 book:
-  title: "write your project title here"
-  author: ["student 1 first and last name", "student 2 first and last name", "student 3 first and last name", "student 4 first and last name"]
+  title: "March Madness Data"
+  author: ["JP Kerrigan", "Lizzie Joo", "Riley Cogan", "Christian Jones"]
   date: today
   date-format: full
   reader-mode: true
@@ -18,6 +18,7 @@ book:
   chapters:
     - index.qmd
     - report.qmd
+    
   
   appendices:
   - proposal.qmd
