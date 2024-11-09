@@ -1,3 +1,6 @@
 # Proposal {.unnumbered}
 
 Write your proposal in this file.
+> For our project, we plan on analyzing March Madness Data from the years 2008-2023 (excluding 2020), trying to see how far each team went in the tournament based on their power ranking in order to see if there are any trends. 
+March Madness is an end of season collegeiate basketball tournmanet that takes place each year. It is noteable because millions of people try and predict the winner, which is a tall task. 
+Along side the primary dataset, there supplemental datsets on kaggle that we could join to further the scope of our reesearch project as we go. 
