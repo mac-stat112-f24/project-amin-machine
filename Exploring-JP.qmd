@@ -26,11 +26,29 @@ march_madness |>
 
 
 ```{r}
-kansas <- march_madness|>
-  filter(TEAM == "Kansas")
+uconn <- march_madness|>
+  filter(TEAM == "Connecticut")
+
+uconn |> 
+  ggplot(aes(x = YEAR, y = ROUND)) +
+  geom_point() +
+  geom_smooth()
+```
+```{r}
+ march_madness_new <- march_madness |>
+  mutate(SEED = as.character(SEED))
+
+march_madness_new <- march_madness_new|>
+full_join(cbb)
 ```
 
   
+```{r}
+march_madness |>
+  ggplot(aes(x = ROUND, fill = "SEED")) +
+  geom_bar() 
+ 
+```
 
 
 ```
