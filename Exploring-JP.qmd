@@ -4,6 +4,34 @@
 library(readr)
 march_madness <- read_csv("538 Ratings.csv")
 View(march_madness)
+
+```
+```{r}
+library(dplyr)
+library(tidyverse)
+march_madness |>
+  str()
+```
+```{r}
+march_madness |>
+  ggplot(aes(x = `POWER RATING`)) +
+  geom_density()
+```
+```{r}
+march_madness |>
+  filter(TEAM =="Duke") |>
+  ggplot(aes(x = YEAR, y = SEED)) +
+  geom_point()
 ```
 
+
+```{r}
+kansas <- march_madness|>
+  filter(TEAM == "Kansas")
+```
+
+  
+
+
+```
 
