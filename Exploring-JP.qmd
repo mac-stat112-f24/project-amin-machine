@@ -11,6 +11,8 @@ library(dplyr)
 library(tidyverse)
 march_madness |>
   str()
+
+
 ```
 ```{r}
 march_madness |>
@@ -44,12 +46,11 @@ full_join(cbb)
 
   
 ```{r}
-march_madness |>
-  ggplot(aes(x = ROUND, fill = "SEED")) +
-  geom_bar() 
- 
+march_madness_new |>
+group_by(CONF, YEAR) |> 
+  summarise(mean(`POWER RATING`))
 ```
 
 
-```
+
 
