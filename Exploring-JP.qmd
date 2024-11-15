@@ -55,12 +55,12 @@ group_by(CONF, YEAR) |>
   summarise(mean(`POWER RATING`))
 ```
 ```{r}
-march_madness_new |>
+CONF_win_perc <- march_madness_new |>
   group_by(CONF) |>
   summarise(
-    games_played = G,
-    games_won = W,
-    Win_Percentage = Games_Won / Games_Played * 100
+    total_games_played = sum(G, na.rm = TRUE),
+    total_games_won = sum(W, na.rm = TRUE),
+    win_percentage = total_games_won / total_games_played * 100
   )
 ```
 
