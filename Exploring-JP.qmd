@@ -5,6 +5,10 @@ library(readr)
 march_madness <- read_csv("538 Ratings.csv")
 View(march_madness)
 
+library(readr)
+cbb <- read_csv("cbb.csv")
+View(cbb)
+
 ```
 ```{r}
 library(dplyr)
@@ -49,6 +53,15 @@ full_join(cbb)
 march_madness_new |>
 group_by(CONF, YEAR) |> 
   summarise(mean(`POWER RATING`))
+```
+```{r}
+march_madness_new |>
+  group_by(CONF) |>
+  summarise(
+    games_played = G,
+    games_won = W,
+    Win_Percentage = Games_Won / Games_Played * 100
+  )
 ```
 
 
