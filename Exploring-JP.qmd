@@ -64,19 +64,6 @@ CONF_win_perc <- march_madness_new |>
   )
 ```
 
-```{r}
-ggplot(CONF_win_perc, aes(x = CONF, y = win_percentage, fill = win_percentage)) +
-  geom_col() +
-  coord_flip() +
-  labs(
-    title = "Win Percentage by Conference",
-    x = "Conference",
-    y = "Win Percentage (%)",
-    fill = "Win Rate (%)"
-  ) +
-  scale_fill_gradient(low = "lightblue", high = "darkblue") +
-  theme_minimal()
-```
 
 
 
