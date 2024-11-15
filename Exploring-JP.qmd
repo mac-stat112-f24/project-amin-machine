@@ -5,14 +5,16 @@ library(readr)
 march_madness <- read_csv("538 Ratings.csv")
 View(march_madness)
 
+library(readr)
+cbb <- read_csv("cbb.csv")
+View(cbb)
+
 ```
 ```{r}
 library(dplyr)
 library(tidyverse)
 march_madness |>
   str()
-
-
 ```
 ```{r}
 march_madness |>
@@ -47,10 +49,34 @@ full_join(cbb)
   
 ```{r}
 march_madness_new |>
-group_by(CONF, YEAR) |> 
-  summarise(mean(`POWER RATING`))
+aggregate(`3P_O` ~ CONF + YEAR, FUN = mean) |>
+  filter(CONF %in% c("ACC", "B10", "B12", "SEC", "P12")) |>
+ # filter(YEAR == "2016") |>
+  ggplot(aes(x = CONF, y = `3P_O`)) +
+    geom_boxplot() +
+  labs(title = "3 Point Percentage by Conference", 
+       x = "Conference",
+       y = "3 Point %") +
+  theme_minimal()
 ```
 
 
+```{r}
+march_madness_new |>
+  filter(CONF %in% c("ACC", "B10", "B12", "SEC", "P12")) |>
+ggplot(aes(x = `3P_O`, y = W)) +
+    geom_point() +
+  geom_smooth() +
+  facet_wrap(~CONF) +
+  labs(x = "3 Point %", 
+       y = "Number of Wins")
+
+
+```
+
+```{r}
+march_madness_new |>
+  filter(ROUND == "1") 
+```
 
 
