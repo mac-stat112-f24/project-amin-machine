@@ -85,7 +85,7 @@ ggplot(CONF_win_perc, aes(x = CONF, y = win_percentage, fill = win_percentage)) 
   scale_fill_gradient(low = "lightblue", high = "darkblue") +
   theme_minimal()
 ```
-```
+
 
 ```{r}
 march_madness_new |>
@@ -105,5 +105,17 @@ ggplot(aes(x = `3P_O`, y = W)) +
 march_madness_new |>
   filter(ROUND == "1") 
 ```
+
+```{r}
+march_madness_new |>
+  filter(CONF %in% c("ACC", "B10", "B12", "SEC", "P12")) |>
+  ggplot(aes (x = ADJDE, y = W, color = CONF)) +
+  geom_point() +
+  labs(x = "Defense Efficiency", )
+```
+
+
+
+
 
 
