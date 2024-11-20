@@ -112,6 +112,7 @@ march_madness_new |>
   filter(CONF %in% c("ACC", "B10", "B12", "SEC", "P12")) |>
   ggplot(aes (x = ADJDE, y = W, color = CONF)) +
   geom_point() +
+  geom_smooth() +
   labs(x = "Defense Efficiency", y = "Wins")
 ```
 
