@@ -1,0 +1,4 @@
+> 3 Point Percentage by Conference
+  - The conferences included in the plot, ACC, B10, B12, P12, and SEC, are all part of the Power 5. As shown by the boxplots, all conferences have a similar 3 point percentage with the exception of the SEC as an outlier. However they still stand at the top 6 of win percentages across all conferences because they focus on defense and getting to the rim. This trend is shown in a plot depicting the offensive rebounds and defensive efficiency across the several top conferences, including the Power 5. 
+  
+> The Power 5 conferences are arguably the 5 most prominent and influential in D1 college sports. However there is a lot of controversy around the term because of the fluctuating success and other outlying conferences.
