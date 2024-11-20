@@ -73,6 +73,7 @@ CONF_win_perc <- march_madness_new |>
 ```
 
 ```{r}
+
 ggplot(CONF_win_perc, aes(x = CONF, y = win_percentage, fill = win_percentage)) +
   geom_col() +
   coord_flip() +
