@@ -85,7 +85,7 @@ ggplot(CONF_win_perc, aes(x = CONF, y = win_percentage, fill = win_percentage)) 
   scale_fill_gradient(low = "lightblue", high = "darkblue") +
   theme_minimal() +
   theme(axis.text.y = element_text(size = 8))
-   ```
+```
 
 ```{r}
 march_madness_new |>
