@@ -87,6 +87,7 @@ ggplot(CONF_win_perc, aes(x = CONF, y = win_percentage, fill = win_percentage)) 
   theme(axis.text.y = element_text(size = 8))
 ```
 
+
 ```{r}
 march_madness_new |>
   filter(CONF %in% c("ACC", "B10", "B12", "SEC", "P12")) |>
@@ -105,5 +106,19 @@ ggplot(aes(x = `3P_O`, y = W)) +
 march_madness_new |>
   filter(ROUND == "1") 
 ```
+
+```{r}
+march_madness_new |>
+  filter(CONF %in% c("ACC", "B10", "B12", "SEC", "P12")) |>
+  ggplot(aes (x = ADJDE, y = W, color = CONF)) +
+  geom_point() +
+  geom_smooth() +
+  labs(x = "Defense Efficiency", y = "Wins")
+```
+
+
+
+
+
 
 
