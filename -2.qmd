@@ -73,7 +73,11 @@ CONF_win_perc <- march_madness_new |>
 ```
 
 ```{r}
+<<<<<<< HEAD
 library(tidyverse)
+=======
+
+>>>>>>> 5ce78bb53f7552e5f6c5df9bd235051cd453ec74
 ggplot(CONF_win_perc, aes(x = CONF, y = win_percentage, fill = win_percentage)) +
   geom_col() +
   coord_flip() +
@@ -98,7 +102,7 @@ march_madness_new |>
   filter(CONF %in% c("ACC", "B10", "B12", "SEC", "P12", "BE")) |>
 ggplot(aes(x = `3P_O`, y = W)) +
     geom_point() +
-  geom_smooth() +
+  geom_smooth(method = "lm", se = FALSE) +
   facet_wrap(~CONF) +
   labs(title = "3 Point % Impact on Wins",
     x = "3 Point %", 
@@ -137,7 +141,7 @@ march_madness_new |>
   filter(CONF %in% c("ACC", "B10", "B12", "SEC", "P12", "BE")) |>
   ggplot(aes (x = ADJDE, y = W, color = CONF)) +
   geom_point() +
-  geom_smooth() +
+  geom_smooth(se = FALSE) +
   labs(x = "Defense Efficiency", y = "Wins")
 ```
 
