@@ -3,11 +3,11 @@
 ```{r}
 library(readr)
 march_madness <- read_csv("538 Ratings.csv")
-View(march_madness)
+
 
 library(readr)
 cbb <- read_csv("cbb.csv")
-View(cbb)
+
 
 ```
 ```{r}
@@ -53,11 +53,12 @@ aggregate(`3P_O` ~ CONF + YEAR, FUN = mean) |>
   filter(CONF %in% c("ACC", "B10", "B12", "SEC", "P12", "BE")) |>
  # filter(YEAR == "2016") |>
   ggplot(aes(x = CONF, y = `3P_O`)) +
-    geom_boxplot() +
+    geom_boxplot(width = 0.5) +
   labs(title = "3 Point Percentage by Conference", 
        x = "Conference",
        y = "3 Point %") +
   theme_minimal()
+
 ```
 ```{r}
 
@@ -73,14 +74,16 @@ CONF_win_perc <- march_madness_new |>
 ```
 
 ```{r}
-<<<<<<< HEAD
 library(tidyverse)
+<<<<<<< Updated upstream
 =======
 
 <<<<<<< HEAD
 ggplot(CONF_win_perc, aes(x = fct_reorder(CONF, -win_percentage), y = win_percentage, fill = win_percentage)) +
 =======
 >>>>>>> 5ce78bb53f7552e5f6c5df9bd235051cd453ec74
+=======
+>>>>>>> Stashed changes
 ggplot(CONF_win_perc, aes(x = CONF, y = win_percentage, fill = win_percentage)) +
 >>>>>>> 85ef6233caf7fba4db7fc620b7e0b4d1d9545ade
   geom_col() +
@@ -106,7 +109,7 @@ march_madness_new |>
   filter(CONF %in% c("ACC", "B10", "B12", "SEC", "P12", "BE")) |>
 ggplot(aes(x = `3P_O`, y = W)) +
     geom_point() +
-  geom_smooth(method = "lm", se = FALSE) +
+  geom_smooth(method = "lm") +
   facet_wrap(~CONF) +
   labs(title = "3 Point % Impact on Wins",
     x = "3 Point %", 
@@ -125,14 +128,16 @@ march_madness_new |>
   labs(title = "Champions 3 Point %")
 ```
 
-
 ```{r}
 march_madness_new |>
-  ggplot(aes(x = `3P_D`, y = W)) +
-  geom_point() +
-  geom_smooth()
-
+  filter(ROUND == "1") |>
+  arrange(TOR)
+ # all winning teams had turnover rates lower than 20%, meaning they turn the ball over on fewer than 20% of their possessions
+ 
 ```
+
+
+
 
 
 ```{r}
@@ -145,8 +150,9 @@ march_madness_new |>
   filter(CONF %in% c("ACC", "B10", "B12", "SEC", "P12", "BE")) |>
   ggplot(aes (x = ADJDE, y = W, color = CONF)) +
   geom_point() +
-  geom_smooth(se = FALSE) +
-  labs(x = "Defense Efficiency", y = "Wins")
+  geom_smooth(se = FALSE, method = "lm") +
+  labs(x = "Defense Efficiency", y = "Wins") 
+  
 ```
 
 
@@ -154,13 +160,12 @@ march_madness_new |>
 march_madness_new |>
   filter(CONF %in% c("ACC", "B10", "B12", "SEC", "P12", "BE")) |>
   ggplot(aes(x = CONF, y = ORB)) +
-  geom_boxplot() +
-  labs(title = "Offensive Rebounds By Conference", 
-       x = "Conference", 
+  geom_boxplot(width = 0.5) +
+  labs(title = "Offensive Rebounds By Conference",
+       x = " ",
        y = "Offensive Rebounds")
 #This plot helps explain the strong paint presence in the SEC, showing why they are still able to compete at a high level in March Madness despite lower 3 point percentages. 
 ```
-
 
 
 
