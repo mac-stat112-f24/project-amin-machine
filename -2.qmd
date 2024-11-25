@@ -3,11 +3,11 @@
 ```{r}
 library(readr)
 march_madness <- read_csv("538 Ratings.csv")
-View(march_madness)
+
 
 library(readr)
 cbb <- read_csv("cbb.csv")
-View(cbb)
+
 
 ```
 ```{r}

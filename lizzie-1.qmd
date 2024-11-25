@@ -10,5 +10,8 @@
 > Champions 3 Point % 
   - This plot includes the 6 winners out of 8 years. As seen in the plot Villanova has won twice and we have excluded 2020 due to covid. There is  a consistent percentage across 4 of the champions around 36 percent with a couple outliers with a higher 3 point percentage. This plot however continues to prove the importance of consistently shooting 3s. 
   
+> Offensive Rebounds Per Conference 
+  - 
+  
 > In the plots, we are mainly obeserving the Power 5 (ACC, B10, B12, P12, SEC) because those teams tend to be the most successful in the tournament. The Power 5 conferences are arguably the 5 most prominent and influential in D1 college sports. However there is a lot of controversy around the term because of the fluctuating success and other outlying conferences. Some outlying conferences include the BE because their success is inconsistent. 
 
