@@ -75,17 +75,8 @@ CONF_win_perc <- march_madness_new |>
 
 ```{r}
 library(tidyverse)
-<<<<<<< Updated upstream
-=======
 
-<<<<<<< HEAD
 ggplot(CONF_win_perc, aes(x = fct_reorder(CONF, -win_percentage), y = win_percentage, fill = win_percentage)) +
-=======
->>>>>>> 5ce78bb53f7552e5f6c5df9bd235051cd453ec74
-=======
->>>>>>> Stashed changes
-ggplot(CONF_win_perc, aes(x = CONF, y = win_percentage, fill = win_percentage)) +
->>>>>>> 85ef6233caf7fba4db7fc620b7e0b4d1d9545ade
   geom_col() +
   coord_flip() +
   labs(
