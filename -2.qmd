@@ -24,22 +24,8 @@ march_madness |>
   geom_density()
 ```
 
-```{r}
-march_madness |>
-  filter(TEAM =="Duke") |>
-  ggplot(aes(x = YEAR, y = SEED)) +
-  geom_point()
-```
 
-```{r}
-uconn <- march_madness|>
-  filter(TEAM == "Connecticut")
 
-uconn |> 
-  ggplot(aes(x = YEAR, y = ROUND)) +
-  geom_point() +
-  geom_smooth()
-```
 
 ```{r}
  march_madness_new <- march_madness |>
