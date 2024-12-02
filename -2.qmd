@@ -87,8 +87,16 @@ ggplot(CONF_win_perc, aes(x = fct_reorder(CONF, -win_percentage), y = win_percen
     fill = "Win Rate (%)"
   ) +
   scale_fill_gradient(low = "lightblue", high = "darkblue") +
+  scale_y_continuous(
+    limits = c(0, max(CONF_win_perc$win_percentage, na.rm = TRUE) + 5),
+    breaks = seq(0, max(CONF_win_perc$win_percentage, na.rm = TRUE) + 5, by = 10),
+    labels = scales::percent_format(scale = 1)
+  ) +
   theme_minimal() +
-  theme(axis.text.y = element_text(size = 8))
+  theme(axis.text.y = element_text(size = 8), plot.margin = margin(10, 20, 10, 10))
+
+
+
 #try to expand the y axis to make it more readable -per amin
 ```
 
