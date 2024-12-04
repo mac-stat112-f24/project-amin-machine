@@ -1,6 +1,13 @@
+---
+execute: 
+  echo: false
+  warning: false
+---
 # Sketch {.unnumbered}
 
+
 ```{r}
+
 library(readr)
 march_madness <- read_csv("538 Ratings.csv")
 
@@ -14,15 +21,10 @@ cbb <- read_csv("cbb.csv")
 ```{r}
 library(dplyr)
 library(tidyverse)
-march_madness |>
-  str()
+
 ```
 
-```{r}
-march_madness |>
-  ggplot(aes(x = `POWER RATING`)) +
-  geom_density()
-```
+
 
 
 
@@ -45,7 +47,15 @@ aggregate(`3P_O` ~ CONF + YEAR, FUN = mean) |>
   labs(title = "3 Point Percentage by Conference", 
        x = "Conference",
        y = "3 Point %") +
-  theme_minimal()
+  theme_minimal(base_size = 14) +
+    theme(
+      plot.title = element_text(face = "bold", size = 16, hjust = 0.5),
+      plot.subtitle = element_text(size = 12, hjust = 0.5, margin = margin(b = 10)),
+      axis.title = element_text(face = "bold"),
+      axis.text = element_text(size = 12))
+      panel.grid.minor = element_blank()
+    
+
 ```
 
 ```{r}
@@ -61,7 +71,7 @@ CONF_win_perc <- march_madness_new |>
  
 ```
 
-```{r, fig.height=6}
+```{r, fig.height=7}
 
 library(tidyverse)
 
@@ -82,10 +92,18 @@ ggplot(CONF_win_perc, aes(x = fct_reorder(CONF, win_percentage), y = win_percent
     labels = scales::percent_format(scale = 1)
   ) +
   theme_minimal() +
-  theme(axis.text.y = element_text(size = 8), plot.margin = margin(10, 20, 10, 10))
+  theme(
+    plot.title = element_text(
+      face = "bold",     
+      hjust = 0.5,       
+      size = 16           
+    ),
+    axis.text.y = element_text(size = 8),
+    plot.margin = margin(10, 20, 10, 10)
+  )
 
 
-#try to expand the y axis to make it more readable -per amin
+
 ```
 
 ```{r}
@@ -105,7 +123,7 @@ ggplot(aes(x = `3P_O`, y = W)) +
     plot.subtitle = element_text(hjust = 0.5, size = 12),  
     axis.title = element_text(face = "bold"),  
     panel.grid.major = element_line(color = "gray85", linetype = "dashed"),  # Subtle grid lines
-    panel.spacing = unit(1.2, "lines")  # Increase spacing between facets
+    panel.spacing = unit(1.2, "lines")  
   )
 
 
@@ -125,18 +143,6 @@ march_madness_new |>
   
 ```
 
-```{r}
-march_madness_new |>
-  ggplot(aes(x = `3P_D`, y = W)) +
-  geom_point() +
-  geom_smooth()
-
-```
-
-```{r}
-CONF_win_perc |>
-  arrange(desc(win_percentage))
-```
 
 ```{r}
 march_madness_new |>
