@@ -42,22 +42,10 @@ aggregate(`3P_O` ~ CONF + YEAR, FUN = mean) |>
  # filter(YEAR == "2016") |>
   ggplot(aes(x = CONF, y = `3P_O`)) +
     geom_boxplot() +
-   scale_fill_brewer(palette = "Set3") +
   labs(title = "3 Point Percentage by Conference", 
        x = "Conference",
-       y = "3 Point %", 
-       caption = "Source: Kaggle") +
-  theme_classic() +
-  theme(
-    plot.title = element_text(size = 16, face = "bold", hjust = 0.5),
-    axis.text = element_text(size = 12),
-    axis.title = element_text(size = 14),
-    plot.caption = element_text(size = 10, hjust = 1)
-  ) 
-
-
-
- 
+       y = "3 Point %") +
+  theme_minimal()
 ```
 
 ```{r}
@@ -85,13 +73,19 @@ ggplot(CONF_win_perc, aes(x = fct_reorder(CONF, win_percentage), y = win_percent
     title = "Win Percentage by Conference",
     x = "Conference",
     y = "Win Percentage (%)",
-    fill = "Win Rate (%)", 
-    caption = "Source: Kaggle"
+    fill = "Win Rate (%)"
   ) +
   scale_fill_gradient(low = "lightblue", high = "darkblue") +
+  scale_y_continuous(
+    limits = c(0, max(CONF_win_perc$win_percentage, na.rm = TRUE) + 5),
+    breaks = seq(0, max(CONF_win_perc$win_percentage, na.rm = TRUE) + 5, by = 10),
+    labels = scales::percent_format(scale = 1)
+  ) +
   theme_minimal() +
-  theme(axis.text.y = element_text(size = 10))
+  theme(axis.text.y = element_text(size = 8), plot.margin = margin(10, 20, 10, 10))
 
+
+#try to expand the y axis to make it more readable -per amin
 ```
 
 ```{r}
@@ -103,8 +97,7 @@ ggplot(aes(x = `3P_O`, y = W)) +
   facet_wrap(~CONF) +
   labs(title = "3 Point % Impact on Wins",
     x = "3 Point %", 
-       y = "Number of Wins",
-     caption = "Source: Kaggle") +
+       y = "Number of Wins") +
     theme_minimal(base_size = 14) +  
   theme(
     strip.text = element_text(face = "bold", size = 12),  
@@ -115,7 +108,7 @@ ggplot(aes(x = `3P_O`, y = W)) +
     panel.spacing = unit(1.2, "lines")  # Increase spacing between facets
   )
 
-#This plot shows a positive correlation between 3 point percentage and winning across the top six conferences.
+
 
 ```
 
@@ -146,14 +139,12 @@ CONF_win_perc |>
 ```
 
 ```{r}
-
 march_madness_new |>
   filter(CONF %in% c("ACC", "B10", "B12", "SEC", "P12", "BE")) |>
   ggplot(aes (x = ADJDE, y = W, color = CONF)) +
   #geom_point() +
   geom_smooth(se = FALSE, method = "lm") + 
-  labs(title = "Defensive Efficiency by Conference", x = "Defense Efficiency", y = "Wins", 
-   caption =  "Source: Kaggle" ) +
+  labs(title = "Defensive Efficiency by Conference", x = "Defense Efficiency", y = "Wins") +
  theme_minimal(base_size = 14) +  # Clean, modern theme with larger base font size
   theme(
     legend.position = "top",  
@@ -161,7 +152,6 @@ march_madness_new |>
     plot.subtitle = element_text(hjust = 0.5, size = 12),
     axis.title = element_text(face = "bold")
   ) 
-#Defensive efficiency measures the number of points a team allows per 100 \n possessions. Lower defensive efficiency ratings show a stronger defense.
 ```
 
 ```{r}
@@ -171,8 +161,7 @@ march_madness_new |>
   geom_boxplot() +
   labs(title = "Offensive Rebounds By Conference", 
        x = "Conference", 
-       y = "Offensive Rebounds",
-       caption = "Source: Kaggle") +
+       y = "Offensive Rebounds") +
   scale_fill_brewer(palette = "Set3") +  
   theme_minimal() + 
   theme(
@@ -182,7 +171,6 @@ march_madness_new |>
     axis.title = element_text(size = 12),
     legend.position = "none"  # Remove redundant legend
   ) +
-  coord_flip() 
-#This plot helps explain the strong paint presence in the SEC, showing why they are still able to compete at a high level in March Madness despite lower 3 point percentages.
- 
+  coord_flip()
+#This plot helps explain the strong paint presence in the SEC, showing why they are still able to compete at a high level in March Madness despite lower 3 point percentages. 
 ```

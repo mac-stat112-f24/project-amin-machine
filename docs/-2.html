@@ -1259,101 +1259,113 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb37-100"><a href="#cb37-100"></a><span class="in">    caption = "Source: Kaggle"</span></span>
 <span id="cb37-101"><a href="#cb37-101"></a><span class="in">  ) +</span></span>
 <span id="cb37-102"><a href="#cb37-102"></a><span class="in">  scale_fill_gradient(low = "lightblue", high = "darkblue") +</span></span>
-<span id="cb37-103"><a href="#cb37-103"></a><span class="in">  theme_minimal() +</span></span>
-<span id="cb37-104"><a href="#cb37-104"></a><span class="in">  theme(axis.text.y = element_text(size = 10))</span></span>
-<span id="cb37-105"><a href="#cb37-105"></a></span>
-<span id="cb37-106"><a href="#cb37-106"></a><span class="in">```</span></span>
-<span id="cb37-107"><a href="#cb37-107"></a></span>
-<span id="cb37-110"><a href="#cb37-110"></a><span class="in">```{r}</span></span>
-<span id="cb37-111"><a href="#cb37-111"></a>march_madness_new <span class="sc">|&gt;</span></span>
-<span id="cb37-112"><a href="#cb37-112"></a>  <span class="fu">filter</span>(CONF <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"ACC"</span>, <span class="st">"B10"</span>, <span class="st">"B12"</span>, <span class="st">"SEC"</span>, <span class="st">"P12"</span>, <span class="st">"BE"</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb37-113"><a href="#cb37-113"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="st">`</span><span class="at">3P_O</span><span class="st">`</span>, <span class="at">y =</span> W)) <span class="sc">+</span></span>
-<span id="cb37-114"><a href="#cb37-114"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb37-115"><a href="#cb37-115"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb37-116"><a href="#cb37-116"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>CONF) <span class="sc">+</span></span>
-<span id="cb37-117"><a href="#cb37-117"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"3 Point % Impact on Wins"</span>,</span>
-<span id="cb37-118"><a href="#cb37-118"></a>    <span class="at">x =</span> <span class="st">"3 Point %"</span>, </span>
-<span id="cb37-119"><a href="#cb37-119"></a>       <span class="at">y =</span> <span class="st">"Number of Wins"</span>,</span>
-<span id="cb37-120"><a href="#cb37-120"></a>     <span class="at">caption =</span> <span class="st">"Source: Kaggle"</span>) <span class="sc">+</span></span>
-<span id="cb37-121"><a href="#cb37-121"></a>    <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span>  </span>
-<span id="cb37-122"><a href="#cb37-122"></a>  <span class="fu">theme</span>(</span>
-<span id="cb37-123"><a href="#cb37-123"></a>    <span class="at">strip.text =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">12</span>),  </span>
-<span id="cb37-124"><a href="#cb37-124"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">16</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>),  </span>
-<span id="cb37-125"><a href="#cb37-125"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">size =</span> <span class="dv">12</span>),  </span>
-<span id="cb37-126"><a href="#cb37-126"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>),  </span>
-<span id="cb37-127"><a href="#cb37-127"></a>    <span class="at">panel.grid.major =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"gray85"</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>),  <span class="co"># Subtle grid lines</span></span>
-<span id="cb37-128"><a href="#cb37-128"></a>    <span class="at">panel.spacing =</span> <span class="fu">unit</span>(<span class="fl">1.2</span>, <span class="st">"lines"</span>)  <span class="co"># Increase spacing between facets</span></span>
-<span id="cb37-129"><a href="#cb37-129"></a>  )</span>
-<span id="cb37-130"><a href="#cb37-130"></a></span>
-<span id="cb37-131"><a href="#cb37-131"></a><span class="co">#This plot shows a positive correlation between 3 point percentage and winning across the top six conferences.</span></span>
-<span id="cb37-132"><a href="#cb37-132"></a></span>
-<span id="cb37-133"><a href="#cb37-133"></a><span class="in">```</span></span>
-<span id="cb37-134"><a href="#cb37-134"></a></span>
-<span id="cb37-137"><a href="#cb37-137"></a><span class="in">```{r}</span></span>
-<span id="cb37-138"><a href="#cb37-138"></a>march_madness_new <span class="sc">|&gt;</span></span>
-<span id="cb37-139"><a href="#cb37-139"></a>  <span class="fu">filter</span>(ROUND <span class="sc">==</span> <span class="st">"1"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb37-140"><a href="#cb37-140"></a>  <span class="fu">group_by</span>(TEAM) <span class="sc">|&gt;</span></span>
-<span id="cb37-141"><a href="#cb37-141"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> TEAM, <span class="at">y =</span> <span class="st">`</span><span class="at">3P_O</span><span class="st">`</span>)) <span class="sc">+</span></span>
-<span id="cb37-142"><a href="#cb37-142"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb37-143"><a href="#cb37-143"></a> <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">expansion</span>(<span class="at">add =</span> <span class="dv">20</span>)) <span class="sc">+</span></span>
-<span id="cb37-144"><a href="#cb37-144"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Champions 3 Point %"</span>) </span>
-<span id="cb37-145"><a href="#cb37-145"></a></span>
-<span id="cb37-146"><a href="#cb37-146"></a>  </span>
-<span id="cb37-147"><a href="#cb37-147"></a><span class="in">```</span></span>
-<span id="cb37-148"><a href="#cb37-148"></a></span>
-<span id="cb37-151"><a href="#cb37-151"></a><span class="in">```{r}</span></span>
-<span id="cb37-152"><a href="#cb37-152"></a>march_madness_new <span class="sc">|&gt;</span></span>
-<span id="cb37-153"><a href="#cb37-153"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="st">`</span><span class="at">3P_D</span><span class="st">`</span>, <span class="at">y =</span> W)) <span class="sc">+</span></span>
+<span id="cb37-103"><a href="#cb37-103"></a><span class="in">  scale_y_continuous(</span></span>
+<span id="cb37-104"><a href="#cb37-104"></a><span class="in">    limits = c(0, max(CONF_win_perc$win_percentage, na.rm = TRUE) + 5),</span></span>
+<span id="cb37-105"><a href="#cb37-105"></a><span class="in">    breaks = seq(0, max(CONF_win_perc$win_percentage, na.rm = TRUE) + 5, by = 10),</span></span>
+<span id="cb37-106"><a href="#cb37-106"></a><span class="in">    labels = scales::percent_format(scale = 1)</span></span>
+<span id="cb37-107"><a href="#cb37-107"></a><span class="in">  ) +</span></span>
+<span id="cb37-108"><a href="#cb37-108"></a><span class="in">  theme_minimal() +</span></span>
+<span id="cb37-109"><a href="#cb37-109"></a><span class="in">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</span></span>
+<span id="cb37-110"><a href="#cb37-110"></a><span class="in">  theme(axis.text.y = element_text(size = 10))</span></span>
+<span id="cb37-111"><a href="#cb37-111"></a></span>
+<span id="cb37-112"><a href="#cb37-112"></a><span class="in">=======</span></span>
+<span id="cb37-113"><a href="#cb37-113"></a><span class="in">  theme(axis.text.y = element_text(size = 8), plot.margin = margin(10, 20, 10, 10))</span></span>
+<span id="cb37-114"><a href="#cb37-114"></a></span>
+<span id="cb37-115"><a href="#cb37-115"></a></span>
+<span id="cb37-116"><a href="#cb37-116"></a><span class="in">#try to expand the y axis to make it more readable -per amin</span></span>
+<span id="cb37-117"><a href="#cb37-117"></a><span class="in">&gt;&gt;&gt;&gt;&gt;&gt;&gt; 86011342f45089fb496a701737c658994d0ffa90</span></span>
+<span id="cb37-118"><a href="#cb37-118"></a><span class="in">```</span></span>
+<span id="cb37-119"><a href="#cb37-119"></a></span>
+<span id="cb37-122"><a href="#cb37-122"></a><span class="in">```{r}</span></span>
+<span id="cb37-123"><a href="#cb37-123"></a>march_madness_new <span class="sc">|&gt;</span></span>
+<span id="cb37-124"><a href="#cb37-124"></a>  <span class="fu">filter</span>(CONF <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"ACC"</span>, <span class="st">"B10"</span>, <span class="st">"B12"</span>, <span class="st">"SEC"</span>, <span class="st">"P12"</span>, <span class="st">"BE"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb37-125"><a href="#cb37-125"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="st">`</span><span class="at">3P_O</span><span class="st">`</span>, <span class="at">y =</span> W)) <span class="sc">+</span></span>
+<span id="cb37-126"><a href="#cb37-126"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb37-127"><a href="#cb37-127"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb37-128"><a href="#cb37-128"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>CONF) <span class="sc">+</span></span>
+<span id="cb37-129"><a href="#cb37-129"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"3 Point % Impact on Wins"</span>,</span>
+<span id="cb37-130"><a href="#cb37-130"></a>    <span class="at">x =</span> <span class="st">"3 Point %"</span>, </span>
+<span id="cb37-131"><a href="#cb37-131"></a>       <span class="at">y =</span> <span class="st">"Number of Wins"</span>,</span>
+<span id="cb37-132"><a href="#cb37-132"></a>     <span class="at">caption =</span> <span class="st">"Source: Kaggle"</span>) <span class="sc">+</span></span>
+<span id="cb37-133"><a href="#cb37-133"></a>    <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span>  </span>
+<span id="cb37-134"><a href="#cb37-134"></a>  <span class="fu">theme</span>(</span>
+<span id="cb37-135"><a href="#cb37-135"></a>    <span class="at">strip.text =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">12</span>),  </span>
+<span id="cb37-136"><a href="#cb37-136"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">16</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>),  </span>
+<span id="cb37-137"><a href="#cb37-137"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">size =</span> <span class="dv">12</span>),  </span>
+<span id="cb37-138"><a href="#cb37-138"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>),  </span>
+<span id="cb37-139"><a href="#cb37-139"></a>    <span class="at">panel.grid.major =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"gray85"</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>),  <span class="co"># Subtle grid lines</span></span>
+<span id="cb37-140"><a href="#cb37-140"></a>    <span class="at">panel.spacing =</span> <span class="fu">unit</span>(<span class="fl">1.2</span>, <span class="st">"lines"</span>)  <span class="co"># Increase spacing between facets</span></span>
+<span id="cb37-141"><a href="#cb37-141"></a>  )</span>
+<span id="cb37-142"><a href="#cb37-142"></a></span>
+<span id="cb37-143"><a href="#cb37-143"></a><span class="co">#This plot shows a positive correlation between 3 point percentage and winning across the top six conferences.</span></span>
+<span id="cb37-144"><a href="#cb37-144"></a></span>
+<span id="cb37-145"><a href="#cb37-145"></a><span class="in">```</span></span>
+<span id="cb37-146"><a href="#cb37-146"></a></span>
+<span id="cb37-149"><a href="#cb37-149"></a><span class="in">```{r}</span></span>
+<span id="cb37-150"><a href="#cb37-150"></a>march_madness_new <span class="sc">|&gt;</span></span>
+<span id="cb37-151"><a href="#cb37-151"></a>  <span class="fu">filter</span>(ROUND <span class="sc">==</span> <span class="st">"1"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb37-152"><a href="#cb37-152"></a>  <span class="fu">group_by</span>(TEAM) <span class="sc">|&gt;</span></span>
+<span id="cb37-153"><a href="#cb37-153"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> TEAM, <span class="at">y =</span> <span class="st">`</span><span class="at">3P_O</span><span class="st">`</span>)) <span class="sc">+</span></span>
 <span id="cb37-154"><a href="#cb37-154"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb37-155"><a href="#cb37-155"></a>  <span class="fu">geom_smooth</span>()</span>
-<span id="cb37-156"><a href="#cb37-156"></a></span>
-<span id="cb37-157"><a href="#cb37-157"></a><span class="in">```</span></span>
-<span id="cb37-158"><a href="#cb37-158"></a></span>
-<span id="cb37-161"><a href="#cb37-161"></a><span class="in">```{r}</span></span>
-<span id="cb37-162"><a href="#cb37-162"></a>CONF_win_perc <span class="sc">|&gt;</span></span>
-<span id="cb37-163"><a href="#cb37-163"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(win_percentage))</span>
-<span id="cb37-164"><a href="#cb37-164"></a><span class="in">```</span></span>
-<span id="cb37-165"><a href="#cb37-165"></a></span>
-<span id="cb37-168"><a href="#cb37-168"></a><span class="in">```{r}</span></span>
-<span id="cb37-169"><a href="#cb37-169"></a>march_madness_new <span class="sc">|&gt;</span></span>
-<span id="cb37-170"><a href="#cb37-170"></a>  <span class="fu">filter</span>(CONF <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"ACC"</span>, <span class="st">"B10"</span>, <span class="st">"B12"</span>, <span class="st">"SEC"</span>, <span class="st">"P12"</span>, <span class="st">"BE"</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb37-171"><a href="#cb37-171"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span> (<span class="at">x =</span> ADJDE, <span class="at">y =</span> W, <span class="at">color =</span> CONF)) <span class="sc">+</span></span>
-<span id="cb37-172"><a href="#cb37-172"></a>  <span class="co">#geom_point() +</span></span>
-<span id="cb37-173"><a href="#cb37-173"></a>  <span class="fu">geom_smooth</span>(<span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span> </span>
-<span id="cb37-174"><a href="#cb37-174"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Defensive Efficiency by Conference"</span>, <span class="at">x =</span> <span class="st">"Defense Efficiency"</span>, <span class="at">y =</span> <span class="st">"Wins"</span>, </span>
-<span id="cb37-175"><a href="#cb37-175"></a>   <span class="at">caption =</span>  <span class="st">"Source: Kaggle"</span> ) <span class="sc">+</span></span>
-<span id="cb37-176"><a href="#cb37-176"></a> <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span>  <span class="co"># Clean, modern theme with larger base font size</span></span>
-<span id="cb37-177"><a href="#cb37-177"></a>  <span class="fu">theme</span>(</span>
-<span id="cb37-178"><a href="#cb37-178"></a>    <span class="at">legend.position =</span> <span class="st">"top"</span>,  </span>
-<span id="cb37-179"><a href="#cb37-179"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>),  </span>
-<span id="cb37-180"><a href="#cb37-180"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">size =</span> <span class="dv">12</span>),</span>
-<span id="cb37-181"><a href="#cb37-181"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>)</span>
-<span id="cb37-182"><a href="#cb37-182"></a>  ) </span>
-<span id="cb37-183"><a href="#cb37-183"></a><span class="co">#Defensive efficiency measures the number of points a team allows per 100 \n possessions. Lower defensive efficiency ratings show a stronger defense.</span></span>
-<span id="cb37-184"><a href="#cb37-184"></a><span class="in">```</span></span>
-<span id="cb37-185"><a href="#cb37-185"></a></span>
-<span id="cb37-188"><a href="#cb37-188"></a><span class="in">```{r}</span></span>
-<span id="cb37-189"><a href="#cb37-189"></a>march_madness_new <span class="sc">|&gt;</span></span>
-<span id="cb37-190"><a href="#cb37-190"></a>  <span class="fu">filter</span>(CONF <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"ACC"</span>, <span class="st">"B10"</span>, <span class="st">"B12"</span>, <span class="st">"SEC"</span>, <span class="st">"P12"</span>, <span class="st">"BE"</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb37-191"><a href="#cb37-191"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> CONF, <span class="at">y =</span> ORB)) <span class="sc">+</span></span>
-<span id="cb37-192"><a href="#cb37-192"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb37-193"><a href="#cb37-193"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Offensive Rebounds By Conference"</span>, </span>
-<span id="cb37-194"><a href="#cb37-194"></a>       <span class="at">x =</span> <span class="st">"Conference"</span>, </span>
-<span id="cb37-195"><a href="#cb37-195"></a>       <span class="at">y =</span> <span class="st">"Offensive Rebounds"</span>,</span>
-<span id="cb37-196"><a href="#cb37-196"></a>       <span class="at">caption =</span> <span class="st">"Source: Kaggle"</span>) <span class="sc">+</span></span>
-<span id="cb37-197"><a href="#cb37-197"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Set3"</span>) <span class="sc">+</span>  </span>
-<span id="cb37-198"><a href="#cb37-198"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span> </span>
-<span id="cb37-199"><a href="#cb37-199"></a>  <span class="fu">theme</span>(</span>
-<span id="cb37-200"><a href="#cb37-200"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>, <span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>),  <span class="co"># Style title</span></span>
-<span id="cb37-201"><a href="#cb37-201"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>),  <span class="co"># Style subtitle</span></span>
-<span id="cb37-202"><a href="#cb37-202"></a>    <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>),</span>
-<span id="cb37-203"><a href="#cb37-203"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>),</span>
-<span id="cb37-204"><a href="#cb37-204"></a>    <span class="at">legend.position =</span> <span class="st">"none"</span>  <span class="co"># Remove redundant legend</span></span>
-<span id="cb37-205"><a href="#cb37-205"></a>  ) <span class="sc">+</span></span>
-<span id="cb37-206"><a href="#cb37-206"></a>  <span class="fu">coord_flip</span>() </span>
-<span id="cb37-207"><a href="#cb37-207"></a><span class="co">#This plot helps explain the strong paint presence in the SEC, showing why they are still able to compete at a high level in March Madness despite lower 3 point percentages.</span></span>
-<span id="cb37-208"><a href="#cb37-208"></a> </span>
-<span id="cb37-209"><a href="#cb37-209"></a><span class="in">```</span></span>
+<span id="cb37-155"><a href="#cb37-155"></a> <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">expansion</span>(<span class="at">add =</span> <span class="dv">20</span>)) <span class="sc">+</span></span>
+<span id="cb37-156"><a href="#cb37-156"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Champions 3 Point %"</span>) </span>
+<span id="cb37-157"><a href="#cb37-157"></a></span>
+<span id="cb37-158"><a href="#cb37-158"></a>  </span>
+<span id="cb37-159"><a href="#cb37-159"></a><span class="in">```</span></span>
+<span id="cb37-160"><a href="#cb37-160"></a></span>
+<span id="cb37-163"><a href="#cb37-163"></a><span class="in">```{r}</span></span>
+<span id="cb37-164"><a href="#cb37-164"></a>march_madness_new <span class="sc">|&gt;</span></span>
+<span id="cb37-165"><a href="#cb37-165"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="st">`</span><span class="at">3P_D</span><span class="st">`</span>, <span class="at">y =</span> W)) <span class="sc">+</span></span>
+<span id="cb37-166"><a href="#cb37-166"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb37-167"><a href="#cb37-167"></a>  <span class="fu">geom_smooth</span>()</span>
+<span id="cb37-168"><a href="#cb37-168"></a></span>
+<span id="cb37-169"><a href="#cb37-169"></a><span class="in">```</span></span>
+<span id="cb37-170"><a href="#cb37-170"></a></span>
+<span id="cb37-173"><a href="#cb37-173"></a><span class="in">```{r}</span></span>
+<span id="cb37-174"><a href="#cb37-174"></a>CONF_win_perc <span class="sc">|&gt;</span></span>
+<span id="cb37-175"><a href="#cb37-175"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(win_percentage))</span>
+<span id="cb37-176"><a href="#cb37-176"></a><span class="in">```</span></span>
+<span id="cb37-177"><a href="#cb37-177"></a></span>
+<span id="cb37-180"><a href="#cb37-180"></a><span class="in">```{r}</span></span>
+<span id="cb37-181"><a href="#cb37-181"></a>march_madness_new <span class="sc">|&gt;</span></span>
+<span id="cb37-182"><a href="#cb37-182"></a>  <span class="fu">filter</span>(CONF <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"ACC"</span>, <span class="st">"B10"</span>, <span class="st">"B12"</span>, <span class="st">"SEC"</span>, <span class="st">"P12"</span>, <span class="st">"BE"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb37-183"><a href="#cb37-183"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span> (<span class="at">x =</span> ADJDE, <span class="at">y =</span> W, <span class="at">color =</span> CONF)) <span class="sc">+</span></span>
+<span id="cb37-184"><a href="#cb37-184"></a>  <span class="co">#geom_point() +</span></span>
+<span id="cb37-185"><a href="#cb37-185"></a>  <span class="fu">geom_smooth</span>(<span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span> </span>
+<span id="cb37-186"><a href="#cb37-186"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Defensive Efficiency by Conference"</span>, <span class="at">x =</span> <span class="st">"Defense Efficiency"</span>, <span class="at">y =</span> <span class="st">"Wins"</span>, </span>
+<span id="cb37-187"><a href="#cb37-187"></a>   <span class="at">caption =</span>  <span class="st">"Source: Kaggle"</span> ) <span class="sc">+</span></span>
+<span id="cb37-188"><a href="#cb37-188"></a> <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span>  <span class="co"># Clean, modern theme with larger base font size</span></span>
+<span id="cb37-189"><a href="#cb37-189"></a>  <span class="fu">theme</span>(</span>
+<span id="cb37-190"><a href="#cb37-190"></a>    <span class="at">legend.position =</span> <span class="st">"top"</span>,  </span>
+<span id="cb37-191"><a href="#cb37-191"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>),  </span>
+<span id="cb37-192"><a href="#cb37-192"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb37-193"><a href="#cb37-193"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>)</span>
+<span id="cb37-194"><a href="#cb37-194"></a>  ) </span>
+<span id="cb37-195"><a href="#cb37-195"></a><span class="co">#Defensive efficiency measures the number of points a team allows per 100 \n possessions. Lower defensive efficiency ratings show a stronger defense.</span></span>
+<span id="cb37-196"><a href="#cb37-196"></a><span class="in">```</span></span>
+<span id="cb37-197"><a href="#cb37-197"></a></span>
+<span id="cb37-200"><a href="#cb37-200"></a><span class="in">```{r}</span></span>
+<span id="cb37-201"><a href="#cb37-201"></a>march_madness_new <span class="sc">|&gt;</span></span>
+<span id="cb37-202"><a href="#cb37-202"></a>  <span class="fu">filter</span>(CONF <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"ACC"</span>, <span class="st">"B10"</span>, <span class="st">"B12"</span>, <span class="st">"SEC"</span>, <span class="st">"P12"</span>, <span class="st">"BE"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb37-203"><a href="#cb37-203"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> CONF, <span class="at">y =</span> ORB)) <span class="sc">+</span></span>
+<span id="cb37-204"><a href="#cb37-204"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb37-205"><a href="#cb37-205"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Offensive Rebounds By Conference"</span>, </span>
+<span id="cb37-206"><a href="#cb37-206"></a>       <span class="at">x =</span> <span class="st">"Conference"</span>, </span>
+<span id="cb37-207"><a href="#cb37-207"></a>       <span class="at">y =</span> <span class="st">"Offensive Rebounds"</span>,</span>
+<span id="cb37-208"><a href="#cb37-208"></a>       <span class="at">caption =</span> <span class="st">"Source: Kaggle"</span>) <span class="sc">+</span></span>
+<span id="cb37-209"><a href="#cb37-209"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Set3"</span>) <span class="sc">+</span>  </span>
+<span id="cb37-210"><a href="#cb37-210"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span> </span>
+<span id="cb37-211"><a href="#cb37-211"></a>  <span class="fu">theme</span>(</span>
+<span id="cb37-212"><a href="#cb37-212"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>, <span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>),  <span class="co"># Style title</span></span>
+<span id="cb37-213"><a href="#cb37-213"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>),  <span class="co"># Style subtitle</span></span>
+<span id="cb37-214"><a href="#cb37-214"></a>    <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>),</span>
+<span id="cb37-215"><a href="#cb37-215"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb37-216"><a href="#cb37-216"></a>    <span class="at">legend.position =</span> <span class="st">"none"</span>  <span class="co"># Remove redundant legend</span></span>
+<span id="cb37-217"><a href="#cb37-217"></a>  ) <span class="sc">+</span></span>
+<span id="cb37-218"><a href="#cb37-218"></a>  <span class="fu">coord_flip</span>() </span>
+<span id="cb37-219"><a href="#cb37-219"></a><span class="co">#This plot helps explain the strong paint presence in the SEC, showing why they are still able to compete at a high level in March Madness despite lower 3 point percentages.</span></span>
+<span id="cb37-220"><a href="#cb37-220"></a> </span>
+<span id="cb37-221"><a href="#cb37-221"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
