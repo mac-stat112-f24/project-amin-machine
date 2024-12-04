@@ -1,0 +1,44 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "March Madness Data",
+    "section": "",
+    "text": "Preface\n\nIn the analysis of NCAA March Madness performance, we are mainly observing the Power 5 (ACC, Big Ten, Big 12, Pac-12, SEC) because those teams tend to be the most successful in the tournament. The Power 5 conferences are arguably the 5 most prominent and influential in D1 college sports. However there is a lot of controversy around the term because of the fluctuating success and other outlying conferences. Some outlying conferences include the Big East, which is included in our data visualization, because they challenge the dominance of the Power 5.",
+    "crumbs": [
+      "Preface"
+    ]
+  },
+  {
+    "objectID": "report.html",
+    "href": "report.html",
+    "title": "Report",
+    "section": "",
+    "text": "Add your report to this file.",
+    "crumbs": [
+      "Report"
+    ]
+  },
+  {
+    "objectID": "proposal.html",
+    "href": "proposal.html",
+    "title": "Proposal",
+    "section": "",
+    "text": "For our project, we plan on analyzing March Madness Data from the years 2008-2023 (excluding 2020), trying to see how far each team went in the tournament based on their power ranking in order to see if there are any trends. March Madness is an end of season collegeiate basketball tournmanet that takes place each year. It is noteable because millions of people try and predict the winner, which is a tall task. Along side the primary dataset, there supplemental datsets on kaggle that we could join to further the scope of our research project as we go. The supplemental dataset that we joined with the March Madness Data is the cbb data set. This data set includes more information about each time like conference, wins, shooting percentage etc. The CBB data set includes a total of 8 seperate years because they have season 2013-2019 and have combined 2020-2023.",
+    "crumbs": [
+      "Appendices",
+      "Proposal"
+    ]
+  },
+  {
+    "objectID": "sketch.html",
+    "href": "sketch.html",
+    "title": "Sketch",
+    "section": "",
+    "text": "sketch",
+    "crumbs": [
+      "Appendices",
+      "Sketch"
+    ]
+  }
+]
