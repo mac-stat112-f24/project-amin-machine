@@ -1,0 +1,177 @@
+# Sketch {.unnumbered}
+
+
+
+
+```{r}
+library(readr)
+march_madness <- read_csv("538 Ratings.csv")
+
+
+library(readr)
+cbb <- read_csv("cbb.csv")
+
+
+```
+
+```{r}
+library(dplyr)
+library(tidyverse)
+march_madness |>
+  str()
+```
+
+```{r}
+march_madness |>
+  ggplot(aes(x = `POWER RATING`)) +
+  geom_density()
+```
+
+```{r}
+ march_madness_new <- march_madness |>
+  mutate(SEED = as.character(SEED))
+
+march_madness_new <- march_madness_new|>
+full_join(cbb)
+```
+
+```{r}
+march_madness_new |>
+aggregate(`3P_O` ~ CONF + YEAR, FUN = mean) |>
+  filter(CONF %in% c("ACC", "B10", "B12", "SEC", "P12", "BE")) |>
+ # filter(YEAR == "2016") |>
+  ggplot(aes(x = CONF, y = `3P_O`)) +
+    geom_boxplot() +
+  labs(title = "3 Point Percentage by Conference", 
+       x = "Conference",
+       y = "3 Point %") +
+  theme_minimal()
+```
+
+```{r}
+
+CONF_win_perc <- march_madness_new |>
+  group_by(CONF) |>
+  summarise(
+    total_games_played = sum(G, na.rm = TRUE),
+    total_games_won = sum(W, na.rm = TRUE),
+    win_percentage = total_games_won / total_games_played * 100
+  )
+
+ 
+```
+
+```{r, fig.height=6}
+
+library(tidyverse)
+
+
+ggplot(CONF_win_perc, aes(x = fct_reorder(CONF, win_percentage), y = win_percentage, fill = win_percentage)) +
+  geom_col() +
+  coord_flip() +
+  labs(
+    title = "Win Percentage by Conference",
+    x = "Conference",
+    y = "Win Percentage (%)",
+    fill = "Win Rate (%)"
+  ) +
+  scale_fill_gradient(low = "lightblue", high = "darkblue") +
+  scale_y_continuous(
+    limits = c(0, max(CONF_win_perc$win_percentage, na.rm = TRUE) + 5),
+    breaks = seq(0, max(CONF_win_perc$win_percentage, na.rm = TRUE) + 5, by = 10),
+    labels = scales::percent_format(scale = 1)
+  ) +
+  theme_minimal() +
+  theme(axis.text.y = element_text(size = 8), plot.margin = margin(10, 20, 10, 10))
+
+
+#try to expand the y axis to make it more readable -per amin
+```
+
+```{r}
+march_madness_new |>
+  filter(CONF %in% c("ACC", "B10", "B12", "SEC", "P12", "BE")) |>
+ggplot(aes(x = `3P_O`, y = W)) +
+    geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  facet_wrap(~CONF) +
+  labs(title = "3 Point % Impact on Wins",
+    x = "3 Point %", 
+       y = "Number of Wins") +
+    theme_minimal(base_size = 14) +  
+  theme(
+    strip.text = element_text(face = "bold", size = 12),  
+    plot.title = element_text(face = "bold", size = 16, hjust = 0.5),  
+    plot.subtitle = element_text(hjust = 0.5, size = 12),  
+    axis.title = element_text(face = "bold"),  
+    panel.grid.major = element_line(color = "gray85", linetype = "dashed"),  # Subtle grid lines
+    panel.spacing = unit(1.2, "lines")  # Increase spacing between facets
+  )
+
+
+
+```
+
+```{r}
+
+march_madness_new |>
+  filter(ROUND == "1") |>
+  group_by(TEAM) |>
+  ggplot(aes(x = TEAM, y = `3P_O`)) +
+  geom_point() +
+ scale_y_continuous(expand = expansion(add = 20)) +
+  labs(title = "Champions 3 Point %") 
+
+  
+```
+
+```{r}
+march_madness_new |>
+  ggplot(aes(x = `3P_D`, y = W)) +
+  geom_point() +
+  geom_smooth()
+
+```
+
+```{r}
+CONF_win_perc |>
+  arrange(desc(win_percentage))
+```
+
+```{r}
+march_madness_new |>
+  filter(CONF %in% c("ACC", "B10", "B12", "SEC", "P12", "BE")) |>
+  ggplot(aes (x = ADJDE, y = W, color = CONF)) +
+  #geom_point() +
+  geom_smooth(se = FALSE, method = "lm") + 
+  labs(title = "Defensive Efficiency by Conference", x = "Defense Efficiency", y = "Wins") +
+ theme_minimal(base_size = 14) +  # Clean, modern theme with larger base font size
+  theme(
+    legend.position = "top",  
+    plot.title = element_text(face = "bold", hjust = 0.5),  
+    plot.subtitle = element_text(hjust = 0.5, size = 12),
+    axis.title = element_text(face = "bold")
+  ) 
+```
+
+```{r}
+march_madness_new |>
+  filter(CONF %in% c("ACC", "B10", "B12", "SEC", "P12", "BE")) |>
+  ggplot(aes(x = CONF, y = ORB)) +
+  geom_boxplot() +
+  labs(title = "Offensive Rebounds By Conference", 
+       x = "Conference", 
+       y = "Offensive Rebounds") +
+  scale_fill_brewer(palette = "Set3") +  
+  theme_minimal() + 
+  theme(
+    plot.title = element_text(size = 16, face = "bold", hjust = 0.5),  # Style title
+    plot.subtitle = element_text(size = 12, hjust = 0.5),  # Style subtitle
+    axis.text = element_text(size = 10),
+    axis.title = element_text(size = 12),
+    legend.position = "none"  # Remove redundant legend
+  ) +
+  coord_flip()
+#This plot helps explain the strong paint presence in the SEC, showing why they are still able to compete at a high level in March Madness despite lower 3 point percentages. 
+```
+
