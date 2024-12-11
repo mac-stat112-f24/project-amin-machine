@@ -99,10 +99,9 @@ ggplot(CONF_win_perc, aes(x = fct_reorder(CONF, win_percentage), y = win_percent
       size = 16           
     ),
     axis.text.y = element_text(size = 8),
-    plot.margin = margin(10, 20, 10, 10)
+    plot.margin = margin(10, 20, 10, 10),
+    scale_x_continuous(expand = expansion(add = 20))
   )
-
-
 
 ```
 

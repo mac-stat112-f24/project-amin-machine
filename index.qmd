@@ -4,5 +4,6 @@
 ![](madness.png)
 
 
+Each year in March, the National Collegiate Athletic Association, or NCAA for short, hosts an end of season basketball tournament, called March Madness. March Madness is a seven round, single elimination tournament that starts with 68 teams, and ultimately crowns one. This tournament has become the subject of great interest to die-hard sports fans and casuals alike, as prior to the start of the tournament, many people fill in the tournament’s bracket, trying to predict the 63 total games. Since 1985, tens of millions of people have tried to predict the outcome of the tournament, but no one has ever predicted all of the games correctly. 
 
 In the analysis of NCAA March Madness performance, we are mainly observing the Power 5 (ACC, Big Ten, Big 12, Pac-12, SEC) because those teams tend to be the most successful in the tournament. The Power 5 conferences are arguably the 5 most prominent and influential in D1 college sports. However there is a lot of controversy around the term because of the fluctuating success and other outlying conferences. Some outlying conferences include the Big East, which is included in our data visualization, because they challenge the dominance of the Power 5. 

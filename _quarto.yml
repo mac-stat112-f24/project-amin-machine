@@ -24,8 +24,7 @@ book:
   - proposal.qmd
   - sketch.qmd
   - README.md
-  - -2.qmd
-
+ 
 
 format:
   html:
