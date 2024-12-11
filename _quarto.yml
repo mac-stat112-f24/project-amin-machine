@@ -23,8 +23,8 @@ book:
   appendices:
   - proposal.qmd
   - sketch.qmd
- 
- 
+
+
 
 format:
   html:
