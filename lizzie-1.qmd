@@ -1,0 +1,19 @@
+> 3 Point Percentage by Conference
+  - The conferences included in the plot are all part of the Power 5 with the exception of the BE. As shown by the boxplots, all conferences have a similar 3 point percentage with the exception of the SEC as an outlier. However they still stand at the top 6 of win percentages across all conferences because they focus on defense and getting to the rim. This trend is shown in a plot depicting the offensive rebounds and defensive efficiency across the several top conferences, including the Power 5. 
+  
+> Defensive Efficiency 
+  - The defensive efficiency is calculated by points allowed per 100 possessions so the lower the efficiency the better. The scatter plot shows a strong negative correlation between defensive effiency and wins. This shows that the better the defensive efficiency usually results in a win. We can see that the SEC has one of the best defensive effiencies which makes up for the lower 3 point percentage. 
+  
+> 3 Point % Impact on Wins 
+  - These plots illustrate a somewhat strong positive correlation between wins and 3 point percentage. This goes to show that a high 3 point percentage is a big part of wiinning games. However as shown in later plots this is not the only fator that contributes to wins. 
+  
+> Champions 3 Point % 
+  - This plot includes the 6 winners out of 8 years. As seen in the plot Villanova has won twice and we have excluded 2020 due to covid. There is  a consistent percentage across 4 of the champions around 36 percent with a couple outliers with a higher 3 point percentage. This plot however continues to prove the importance of consistently shooting 3s. 
+  
+> Offensive Rebounds Per Conference 
+  - 
+  
+> In the anaylsis of NCAA March Madness performance, we are mainly obeserving the Power 5 (ACC, Big Ten, Big 12, Pac-12, SEC) because those teams tend to be the most successful in the tournament. The Power 5 conferences are arguably the 5 most prominent and influential in D1 college sports. However there is a lot of controversy around the term because of the fluctuating success and other outlying conferences. Some outlying conferences include the Big East, which is included in our data visualization, because they challenge the dominance of the Power 5. 
+
+
+

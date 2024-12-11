@@ -1,0 +1,125 @@
+# Sketch {.unnumbered}
+
+```{r}
+library(readr)
+march_madness <- read_csv("538 Ratings.csv")
+View(march_madness)
+
+library(readr)
+cbb <- read_csv("cbb.csv")
+View(cbb)
+
+```
+```{r}
+library(dplyr)
+library(tidyverse)
+march_madness |>
+  str()
+```
+```{r}
+march_madness |>
+  ggplot(aes(x = `POWER RATING`)) +
+  geom_density()
+```
+```{r}
+march_madness |>
+  filter(TEAM =="Duke") |>
+  ggplot(aes(x = YEAR, y = SEED)) +
+  geom_point()
+```
+
+
+```{r}
+uconn <- march_madness|>
+  filter(TEAM == "Connecticut")
+
+uconn |> 
+  ggplot(aes(x = YEAR, y = ROUND)) +
+  geom_point() +
+  geom_smooth()
+```
+```{r}
+ march_madness_new <- march_madness |>
+  mutate(SEED = as.character(SEED))
+
+march_madness_new <- march_madness_new|>
+full_join(cbb)
+```
+
+  
+```{r}
+march_madness_new |>
+aggregate(`3P_O` ~ CONF + YEAR, FUN = mean) |>
+  filter(CONF %in% c("ACC", "B10", "B12", "SEC", "P12", "BE")) |>
+ # filter(YEAR == "2016") |>
+  ggplot(aes(x = CONF, y = `3P_O`)) +
+    geom_boxplot() +
+  labs(title = "3 Point Percentage by Conference", 
+       x = "Conference",
+       y = "3 Point %") +
+  theme_minimal()
+```
+```{r}
+CONF_win_perc <- march_madness_new |>
+  group_by(CONF) |>
+  summarise(
+    total_games_played = sum(G, na.rm = TRUE),
+    total_games_won = sum(W, na.rm = TRUE),
+    win_percentage = total_games_won / total_games_played * 100
+  )
+```
+
+```{r}
+library(tidyverse)
+ggplot(CONF_win_perc, aes(x = CONF, y = win_percentage, fill = win_percentage)) +
+  geom_col() +
+  coord_flip() +
+  labs(
+    title = "Win Percentage by Conference",
+    x = "Conference",
+    y = "Win Percentage (%)",
+    fill = "Win Rate (%)"
+  ) +
+  scale_fill_gradient(low = "lightblue", high = "darkblue") +
+  theme_minimal()
+```
+
+
+```{r}
+
+march_madness_new |>
+  filter(CONF %in% c("ACC", "B10", "B12", "SEC", "P12", "BE")) |>
+ggplot(aes(x = `3P_O`, y = W)) +
+    geom_point() +
+  geom_smooth() +
+  facet_wrap(~CONF) +
+  labs(title = "3 Point % Impact on Wins",
+    x = "3 Point %", 
+       y = "Number of Wins")
+
+```
+
+```{r}
+
+march_madness_new |>
+  filter(ROUND == "1") |>
+  group_by(TEAM) |>
+  ggplot(aes(x = TEAM, y = `3P_O`)) +
+  geom_point() +
+  labs(title = "Champions 3 Point %")
+```
+```{r}
+march_madness_new |>
+  ggplot(aes(x = `3P_D`, y = W)) +
+  geom_point() +
+  geom_smooth()
+
+```
+
+
+```{r}
+CONF_win_perc |>
+  arrange(desc(win_percentage))
+```
+
+

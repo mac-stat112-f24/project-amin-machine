@@ -1,0 +1,44 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "March Madness Data",
+    "section": "",
+    "text": "Preface\n\nEach year in March, the National Collegiate Athletic Association, or NCAA for short, hosts an end of season basketball tournament, called March Madness. March Madness is a seven round, single elimination tournament that starts with 68 teams, and ultimately crowns one. This tournament has become the subject of great interest to die-hard sports fans and casuals alike, as prior to the start of the tournament, many people fill in the tournament’s bracket, trying to predict the 63 total games. Since 1985, tens of millions of people have tried to predict the outcome of the tournament, but no one has ever predicted all of the games correctly.\nIn the analysis of NCAA March Madness performance, we are mainly observing the Power 5 (ACC, Big Ten, Big 12, Pac-12, SEC) because those teams tend to be the most successful in the tournament. The Power 5 conferences are arguably the 5 most prominent and influential in D1 college sports. However there is a lot of controversy around the term because of the fluctuating success and other outlying conferences. Some outlying conferences include the Big East, which is included in our data visualization, because they challenge the dominance of the Power 5.",
+    "crumbs": [
+      "Preface"
+    ]
+  },
+  {
+    "objectID": "report.html",
+    "href": "report.html",
+    "title": "Findings",
+    "section": "",
+    "text": "Here is a link to our recorded Demo, breaking down our findings.\nWithin collegiate athletics, there are programs that have seen more success than others. Often, these elite teams are forged by playing against other elite teams, pointing to the importance of their respective conference, which we are using as a proxy variable for strength of schedule as a means of predicting success in March. This data visualization compares the relative success of all the conferences by highlighting their respective win percentages, helping us to see if we can find any outliers. It is clear that the Big Twelve has the highest win percentage, at over 60%, roughly five percent ahead of the next highest conference.\n\n\n\n\n\n\n\n\n\nWhen analyzing the three point percentages on a conference level, we can see that there is a clear positive relationship between a team’s three point percentage and their total number of wins. We have chosen to inspect the top 6 conferences, because they have had the most success during March Madness in the past.\n\n\n\n\n\n\n\n\n\nIn tandem with the results of the previous page, we have the three point percentage of the 6 prior tournament champions, which were all above 35%. The mean value of the highest conference three-point percentage was found in the Pac 12. These findings point to higher three point percentages as being a good predictor of tournament success.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThere is a clear negative relationship between a team’s total number of wins and their defensive efficiency, highlighting the fact that defensive teams do make it far in the tournament. As a reminder, defensive efficiency measures the amount of points a team allows per 100 possessions, so a lower value is better. Teams that prioritize offense (three point percentage, for example) as well as defense, will go further.\n\n\n\n\n\n\n\n\n\nThis plot shows the offensive rebounding trends across conferences. The Big Twelve Conference, on average, has the highest number of offensive rebounds, while also having the highest win percentage, pointing to a positive relationship between offensive rebounds and tournament success. In addition, the SEC has a high number of offensive rebounds, explaining how they are still able to compete at a high level despite having lower three point percentages. Offensive rebounds lead to more shot attempts for a team, giving them more opportunities to score.",
+    "crumbs": [
+      "Findings"
+    ]
+  },
+  {
+    "objectID": "proposal.html",
+    "href": "proposal.html",
+    "title": "Proposal",
+    "section": "",
+    "text": "For our project, we plan on analyzing March Madness Data from the years 2008-2023 (excluding 2020), trying to see how far each team went in the tournament based on their power ranking in order to see if there are any trends. March Madness is an end of season collegeiate basketball tournmanet that takes place each year. It is noteable because millions of people try and predict the winner, which is a tall task. Along side the primary dataset, there supplemental datsets on kaggle that we could join to further the scope of our research project as we go. The supplemental dataset that we joined with the March Madness Data is the cbb data set. This data set includes more information about each time like conference, wins, shooting percentage etc. The CBB data set includes a total of 8 seperate years because they have season 2013-2019 and have combined 2020-2023.",
+    "crumbs": [
+      "Appendices",
+      "Proposal"
+    ]
+  },
+  {
+    "objectID": "sketch.html",
+    "href": "sketch.html",
+    "title": "Sketch",
+    "section": "",
+    "text": "sketch",
+    "crumbs": [
+      "Appendices",
+      "Sketch"
+    ]
+  }
+]
