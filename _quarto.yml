@@ -23,6 +23,7 @@ book:
   appendices:
   - proposal.qmd
   - sketch.qmd
+  - README.md
 
 
 
